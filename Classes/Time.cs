@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,12 +7,16 @@ using System.Threading.Tasks;
 
 namespace BerlinClock.Classes
 {
-    public class Time
+     public class Time
     {
         public int Hours { get; private set; }
         public int Minutes { get; private set; }
         public int Seconds { get; private set; }
 
+        // Factory method parsing given time in a string format
+        // ITimeParser interface has not been introduced 
+        // because implementation it is not expected to be replaced 
+        // or mocked
         public static Time Parse(string time)
         {
             if (string.IsNullOrWhiteSpace(time))
